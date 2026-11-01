@@ -15,12 +15,10 @@ jobs:
     strategy:
       matrix:
         include:
-          - xcode: 16.2
+          # macos-15 ships Xcode 16.x only, with that Xcode's own simulator runtime.
+          - xcode: 16.4
             destination: iPhone 16 Pro
-            os: 18.2
-          - xcode: 15.2
-            destination: iPhone 15 Pro
-            os: 17.2
+            os: latest
     env:
       DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer    
     steps:
